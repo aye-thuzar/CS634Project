@@ -1,7 +1,19 @@
-# CS634Project
+# CS670Project_milestone-1
 
-## Interpretable Gradient Boosting - Real Estate House Price Prediction
+**Installation steps**
 
-Ask a home buyer to describe their dream house, and they probably won’t begin with the height of the basement ceiling or the proximity to an east-west railroad. But this playground competition’s dataset proves that much more influences price negotiations than the number of bedrooms or a white-picket fence. With 79 explanatory variables describing (almost) every aspect of residential homes in Ames, Iowa, this competition challenges you to predict the final price of each home.
+1. Go to docs.docker.com/get-docker/
+2. Download "Docker Desktop for Mac with Apple silicon"
+3. Double-click on the "Docker.dmg" file and follow the instructions to install it
+
+![Alt text](https://github.com/aye-thuzar/CS670Project/blob/milestone-1/Screenshot1.jpeg "installed docker")
+
+This is my VS Code:
+
+![Alt text](https://github.com/aye-thuzar/CS670Project/blob/milestone-1/Screenshot2.png "installed docker")
+
+This is my Docker Desktop:
+
+![Alt text](https://github.com/aye-thuzar/CS670Project/blob/milestone-1/Screenshot3.png "installed docker")
 
 
