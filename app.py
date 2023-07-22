@@ -49,7 +49,7 @@ data = pd.read_csv('data/train.csv')
 
 data = data[name_list_train].values
 
-scaler.fit(data)
+#scaler.fit(data)
 
 description_list = [
  'What is the Overall material and finish quality?',
