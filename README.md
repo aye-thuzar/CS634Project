@@ -6,7 +6,7 @@ Hugging Face App:
 
 ***********
 
-Results:
+Results
 
 ***********
 
@@ -26,7 +26,7 @@ Total number of trials:  120
 
 Best RMSE score on validation data: 12338.665498601415
 
-** Best params:
+** Best params: **
 
 boosting_type :	 goss
 
@@ -78,15 +78,15 @@ Here are the 10 features I selected:
  
  'SaleCondition': Condition of sale
  
- 'BsmtExposure': Walkout or garden level basement walls
+ 'BsmtExposure': Walkout or garden-level basement walls
 
 All the attributes are encoded and normalized before splitting into train and test with 80% train and 20% test.
 
-**Milestone 2: 
+** Milestone 2: **
 
 For milestone 2, I ran an XGBoost Model with objective="reg:squarederror" and max_depth=3. The RMSE score is 28986.
 
-**Milestone 3:
+** Milestone 3: **
 
 Reference:
 
