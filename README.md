@@ -1,6 +1,6 @@
 ---
 title: LightGBM House Sale Price Prediction
-emoji: 🏆
+emoji: 🏠
 colorFrom: pink
 colorTo: purple
 sdk: streamlit
