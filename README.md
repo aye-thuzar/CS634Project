@@ -1,3 +1,14 @@
+---
+title: LightGBM House Sale Price Prediction
+emoji: 🏆
+colorFrom: pink
+colorTo: purple
+sdk: streamlit
+sdk_version: 1.21.0
+app_file: app.py
+pinned: false
+---
+
 # CS634Project
 
 Milestone-3 notebook: [[https://colab.research.google.com/drive/17-7A0RkGcwqcJw0IcSvkniDmhbn5SuXe]](https://github.com/aye-thuzar/CS634Project/blob/milestone-3/CS634Project_Milestone3_AyeThuzar.ipynb)(https://colab.research.google.com/drive/1BeoZ4Dxhgd6OcUwPhk6rKCeFnDFMUCmt#scrollTo=TZ4Ci-YXOSl6)
