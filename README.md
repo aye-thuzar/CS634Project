@@ -60,16 +60,25 @@ For the feature selection, I started by dropping columns with a low correlation 
 
 Here are the 10 features I selected:
 
- 'OverallQual',
- 'YearBuilt',
- 'TotalBsmtSF',
- 'GrLivArea',
- 'MasVnrArea',
- 'BsmtFinType1',
- 'Neighborhood',
- 'GarageType',
- 'SaleCondition',
- 'BsmtExposure'
+ 'OverallQual': Overall material and finish quality
+ 
+ 'YearBuilt': Original construction date
+ 
+ 'TotalBsmtSF': Total square feet of basement area
+ 
+ 'GrLivArea': Above grade (ground) living area square feet
+ 
+ 'MasVnrArea': Masonry veneer area in square feet
+ 
+ 'BsmtFinType1': Quality of basement finished area
+ 
+ 'Neighborhood': Physical locations within Ames city limits
+ 
+ 'GarageType': Garage location
+ 
+ 'SaleCondition': Condition of sale
+ 
+ 'BsmtExposure': Walkout or garden level basement walls
 
 All the attributes are encoded and normalized before splitting into train and test with 80% train and 20% test.
 
