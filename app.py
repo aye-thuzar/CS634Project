@@ -9,25 +9,17 @@ from sklearn.preprocessing import MinMaxScaler
 
 scaler = MinMaxScaler()
 
-
 # load trained model
 lgbm_base = pickle.load(open('lgbm_base.pkl', 'rb'))
 lgbm_opt = pickle.load(open('lgbm_optimized.pkl', 'rb'))
 
-
-tf.random.set_seed(42)
-
 np.random.seed(42)
 
-
 st.markdown("<body style ='color:#E2E0D9;'></body>", unsafe_allow_html=True)
-
-
 
 st.markdown("<h4 style='text-align: center; color: #1B9E91;'>House Price Prediction in Ames,Iowa</h4>", unsafe_allow_html=True)
 
 st.markdown("<h5 style='text-align: center; color: #1B9E91;'>A multi-step process is used to estimate the range of house prices based on your selection. </h5>", unsafe_allow_html=True)
-
 
 name_list = [
  'OverallQual',
@@ -53,8 +45,7 @@ name_list_train = [
  'SaleCondition',
  'BsmtExposure']
 
-data = pd.read_csv('train.csv')
-
+data = pd.read_csv('data/train.csv')
 
 data = data[name_list_train].values
 
@@ -66,8 +57,8 @@ description_list = [
  'What is the Total square feet of basement area?',
  'What is the Above grade (ground) living area in square feet?',
  'What is the Masonry veneer area in square feet??',
- 'What is the Quality of basement finished area?',
- 'Where is the physical locations within Ames city limits?',
+ 'What is the Quality of the basement finished area?',
+ 'Where are the physical locations within Ames city limits?',
  'Where is the location of the Garage?',
  'What is the condition of the sale?',
  'Does the house have walkout or garden-level basement walls?'
