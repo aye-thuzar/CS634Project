@@ -128,11 +128,11 @@ data_df = {
  'YearBuilt': [YearBuilt],
  'TotalBsmtSF': [TotalBsmtSF],
  'GrLivArea':[GrLivArea],
- 'MasVnrArea': [MasVnrArea]
- 'BsmtFinType1': [BsmtFinType1]
- 'Neighborhood': [Neighborhood]
- 'GarageType': [GarageType]
- 'SaleCondition': [SaleCondition]
+ 'MasVnrArea': [MasVnrArea],
+ 'BsmtFinType1': [BsmtFinType1],
+ 'Neighborhood': [Neighborhood],
+ 'GarageType': [GarageType],
+ 'SaleCondition': [SaleCondition],
  'BsmtExposure': [BsmtExposure]
 }
 
