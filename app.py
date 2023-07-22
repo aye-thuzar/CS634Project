@@ -45,11 +45,11 @@ name_list_train = [
  'SaleCondition',
  'BsmtExposure']
 
-data = pd.read_csv('data/train.csv')
+#data = pd.read_csv('data/train.csv')
 
-data = data[name_list_train].values
+#data = data[name_list_train].values
 
-st.write(data[0])
+#st.write(data[0])
 
 #scaler.fit(data)
 
@@ -126,6 +126,8 @@ data_df = {
 data_df = pd.DataFrame.from_dict(data_df)
 
 #data_df_normal = scaler.transform(data_df)
+
+st.write(data_df.head())
 
 y_pred_base = lgbm_base.predict(data_df)
 y_pred_optimized = lgbm_opt.predict(data_df)
