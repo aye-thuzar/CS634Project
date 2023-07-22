@@ -90,6 +90,20 @@ For milestone 2, I ran an XGBoost Model with objective="reg:squarederror" and ma
 
 
 
-Reference:
+**Reference:**
+
+https://towardsdatascience.com/analysing-interactions-with-shap-8c4a2bc11c2a
+
+https://towardsdatascience.com/introduction-to-shap-with-python-d27edc23c454
+
+https://www.aidancooper.co.uk/a-non-technical-guide-to-interpreting-shap-analyses/
+
+https://www.kaggle.com/code/rnepal2/lightgbm-optuna-housing-prices-regression/notebook
+
+https://www.kaggle.com/code/rnepal2/lightgbm-optuna-housing-prices-regression/notebook
+
+https://machinelearningmastery.com/save-load-machine-learning-models-python-scikit-learn/
+
+https://towardsdatascience.com/why-is-everyone-at-kaggle-obsessed-with-optuna-for-hyperparameter-tuning-7608fdca337c
 
 https://github.com/adhok/streamlit_ames_housing_price_prediction_app/tree/main
