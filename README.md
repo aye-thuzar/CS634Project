@@ -48,7 +48,7 @@ min_child_samples :	 1
 
 ***********
 
-## Documentation
+## Documentation for Milestone 4
 
 ***********
 
@@ -89,7 +89,6 @@ For milestone 2, I ran an XGBoost Model with objective="reg:squarederror" and ma
 **Milestone 3:**
 
 
-**Milestone 4**
 
 Reference:
 
