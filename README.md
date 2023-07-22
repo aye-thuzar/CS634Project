@@ -1,8 +1,8 @@
 ---
-title: LightGBM House Sale Price Prediction
-emoji: 🏠
+title: HousePricePredictionApp
+emoji: 🏃
 colorFrom: pink
-colorTo: purple
+colorTo: yellow
 sdk: streamlit
 sdk_version: 1.21.0
 app_file: app.py
