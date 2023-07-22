@@ -19,7 +19,7 @@ st.markdown("<body style ='color:#E2E0D9;'></body>", unsafe_allow_html=True)
 
 st.markdown("<h4 style='text-align: center; color: #1B9E91;'>House Price Prediction in Ames,Iowa</h4>", unsafe_allow_html=True)
 
-st.markdown("<h5 style='text-align: center; color: #1B9E91;'>A multi-step process is used to estimate the range of house prices based on your selection. </h5>", unsafe_allow_html=True)
+st.markdown("<h5 style='text-align: center; color: #1B9E91;'>Optuna optimized LGBM model to estimate the range of house prices based on your selection. </h5>", unsafe_allow_html=True)
 
 name_list = [
  'OverallQual',
@@ -49,7 +49,7 @@ data = pd.read_csv('data/train.csv')
 
 data = data[name_list_train].values
 
-print(data.head())
+st.write(data.head())
 
 #scaler.fit(data)
 
