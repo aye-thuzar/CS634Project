@@ -5,15 +5,7 @@ import pandas as pd
 import numpy as np
 import pickle
 
-
 from sklearn.preprocessing import MinMaxScaler
-
-
-
-from pickle import dump
-from pickle import load
-
-
 
 scaler = MinMaxScaler()
 
