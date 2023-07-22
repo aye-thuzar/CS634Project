@@ -129,8 +129,8 @@ data_df = pd.DataFrame.from_dict(data_df)
 
 st.write(data_df.head())
 
-#y_pred_base = lgbm_base.predict(data_df)
-y_pred_optimized = lgbm_opt.predict(data_df)
+y_pred_base = lgbm_base.predict(data_df)
+#y_pred_optimized = lgbm_opt.predict(data_df)
 
 
 
