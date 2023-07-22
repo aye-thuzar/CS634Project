@@ -49,7 +49,7 @@ data = pd.read_csv('data/train.csv')
 
 data = data[name_list_train].values
 
-st.write(data.head())
+st.write(data[0])
 
 #scaler.fit(data)
 
