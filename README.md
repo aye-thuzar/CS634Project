@@ -6,7 +6,7 @@ Hugging Face App:
 
 Results:
 
-XGBoost Model's RMSE: 28986 
+XGBoost Model's RMSE: 28986  (Milestone-2)
 
 Baseline LGBM's RMSE: 26233
 
