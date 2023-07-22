@@ -86,11 +86,11 @@ All the attributes are encoded and normalized before splitting into train and te
 
 **Milestone 2:**
 
-For milestone 2, I ran an XGBoost Model with objective="reg:squarederror" and max_depth=3. The RMSE score is 28986.
+For milestone 2, I used an XGBoost Model with objective="reg:squarederror" and max_depth=3. The RMSE score is 28986.
 
 **Milestone 3:**
 
-
+For milestone 3, I used light gradient boosting machine (LGBM) with default parameters for baseline and hyperparameter-tuned with Optuna for the optimized model. The results are stated at the beginning of my readme file.
 
 **References:**
 
