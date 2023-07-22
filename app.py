@@ -3,12 +3,11 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import tensorflow as tf
+
 
 from sklearn.preprocessing import MinMaxScaler
 
-import tensorflow_probability as tfp
-tfd = tfp.distributions
+
 
 from pickle import dump
 from pickle import load
