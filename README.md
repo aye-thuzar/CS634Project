@@ -5,8 +5,12 @@ Milestone-3 notebook: https://colab.research.google.com/drive/17-7A0RkGcwqcJw0Ic
 Results:
 
 XGBoost Model's RMSE: 28986 
+
 Baseline LGBM's RMSE: 26233
+
 Optuna optimized LGBM's RMSE: 13799.282803291926
+
+***********
 
 Totalnumber of trials:  120
 
