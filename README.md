@@ -54,7 +54,7 @@ min_child_samples :	 1
 
 Dataset: https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/overview
 
-Data Processing and Feature Selection:
+**Data Processing and Feature Selection:**
 
 For the feature selection, I started by dropping columns with a low correlation (< 0.4) with SalePrice. I then dropped columns with low variances (< 1). After that, I checked the correlation matrix between columns to drop selected columns that have a correlation greater than 0.5 but with consideration for domain knowledge. After that, I checked for NAs in the numerical columns. Then, based on the result, I used domain knowledge to fill the NAs with appropriate values. In this case, I used 0 to fill the NAs as it was the most relevant value. As for the categorical NAs, they were replaced with ‘None’. Once, all the NAs were taken care of, I used LabelEncoder to encode the categorical values. I, then, checked for a correlation between columns and dropped them based on domain knowledge.
 
@@ -90,7 +90,7 @@ For milestone 2, I ran an XGBoost Model with objective="reg:squarederror" and ma
 
 
 
-**Reference:**
+**References:**
 
 https://towardsdatascience.com/analysing-interactions-with-shap-8c4a2bc11c2a
 
