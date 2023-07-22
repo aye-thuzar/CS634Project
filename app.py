@@ -49,6 +49,8 @@ data = pd.read_csv('data/train.csv')
 
 data = data[name_list_train].values
 
+print(data.head())
+
 #scaler.fit(data)
 
 description_list = [
