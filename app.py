@@ -10,7 +10,7 @@ from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler()
 
 # load trained model
-lgbm_base = pickle.load(open('lgbm_base.pkl', 'rb'))
+lgbm_base = pickle.load(open('lgbm_base-2.pkl', 'rb'))
 lgbm_opt = pickle.load(open('lgbm_optimized.pkl', 'rb'))
 
 np.random.seed(42)
