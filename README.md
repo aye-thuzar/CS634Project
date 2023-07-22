@@ -18,15 +18,15 @@ Optuna optimized LGBM's RMSE: 13799.282803291926
 
 ***********
 
-Totalnumber of trials:  120
+Hyperparameter Tuning with Optuna
+
+************
+
+Total number of trials:  120
 
 Best RMSE score on validation data: 12338.665498601415
 
-------------------------------
-
-Best params:
-
-------------------------------
+** Best params:
 
 boosting_type :	 goss
 
