@@ -129,7 +129,7 @@ data_df = pd.DataFrame.from_dict(data_df)
 
 st.write(data_df.head())
 
-y_pred_base = lgbm_base.predict(data_df)
+#y_pred_base = lgbm_base.predict(data_df)
 y_pred_optimized = lgbm_opt.predict(data_df)
 
 
@@ -165,8 +165,8 @@ if center_button:
 
     col1, col2 = st.columns([3, 3])
 
-    lower_number = "{:,.2f}".format(int(yhat.mean().numpy()-1.95*yhat.stddev().numpy()))
-    higher_number = "{:,.2f}".format(int(yhat.mean().numpy()+1.95*yhat.stddev().numpy()))
+    lower_number = "{:,.2f}".format(int(y_pred_optimized.mean().numpy()-1.95*yhat.stddev().numpy()))
+    higher_number = "{:,.2f}".format(int(y_pred_optimized.mean().numpy()+1.95*yhat.stddev().numpy()))
 
     col1, col2, col3 = st.columns(3)
 
@@ -189,16 +189,5 @@ if center_button:
 
     
 
-    import base64
-
-    file_ = open("kramer_gif.gif", "rb")
-    contents = file_.read()
-    data_url = base64.b64encode(contents).decode("utf-8")
-    file_.close()
-
-    st.markdown(
-        f'<center><img src="data:image/gif;base64,{data_url}" alt="cat gif"></center>',
-        unsafe_allow_html=True,
-    )
-    
+  
 
