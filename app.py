@@ -151,15 +151,15 @@ if center_button:
 
     st.write("")
 
-    result1 = "Base model's prediciton: USD" + str(base_model_prediction)
-    html_str = f"""<style>p.a {{font: bold {13}px Courier;}}</style><p class="a">{result1}</p>"""
-    
-    st.markdown(result1, unsafe_allow_html=True)
+    result1 = "Base model's prediciton: $" + str(base_model_prediction)
+    html_str = f"""<style>p.a {{font: bold {28}px Courier;}}</style><p class="a">{result1}</p>"""   
+    st.markdown(html_str, unsafe_allow_html=True)
 
-    st.subheader("Optimized model's prediciton: USD USD "+str(optimized_model_prediction))
+    result2 = "Optimized model's prediciton: $" + str(optimized_model_prediction)
+    html_str2 = f"""<style>p.a {{font: bold {28}px Courier;}}</style><p class="a">{result2}</p>"""
+    st.markdown(html_str2, unsafe_allow_html=True)
 
 
-    #with col3:
     
 
     
