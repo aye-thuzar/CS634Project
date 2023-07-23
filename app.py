@@ -115,8 +115,10 @@ st.write(data_df)
 
 # load trained model
 lgbm_base = pickle.load(open('lgbm_base.pkl', 'rb'))
-lgbm_opt = pickle.load(open('lgbm_optimized.pkl', 'rb'))
+lgbm_opt = pickle.load(open('lgbm_opt_test.pkl', 'rb'))
 xgb = pickle.load(open('xgb_model.pkl', 'rb'))
+
+
 
 y_pred_xgb = xgb.predict(data_df)
 y_pred_optimized = lgbm_opt.predict(data_df)
