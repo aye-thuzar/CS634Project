@@ -177,6 +177,12 @@ if center_button:
     st.markdown("</div>", unsafe_allow_html=True)
     st.pyplot()
 
+    st.markdown("<h4 style='text-align: center; color: #1B9E91;'>SHAP Interaction Plot</h4>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
+    shap.summary_plot(shap_interaction_base, max_display=10)
+    st.markdown("</div>", unsafe_allow_html=True)
+    st.pyplot()
+ 
     result2 = "Optimized model's prediciton: $" + str(optimized_model_prediction)
     html_str2 = f"""<style>p.a {{font: bold {28}px Courier;color:#1D5D9B;}}</style><p class="a">{result2}</p>"""
     st.markdown(html_str2, unsafe_allow_html=True)
