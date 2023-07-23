@@ -4,6 +4,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+import shap
+
 
 np.random.seed(42)
 
@@ -122,6 +124,11 @@ xgb_opt = pickle.load(open('xgb_optimized.pkl', 'rb'))
 y_pred = xgb_base.predict(data_df)
 y_pred_optimized = xgb_opt.predict(data_df)
 
+explainer_base = shap.TreeExplainer(xgb_base)
+shap_interaction_base = explainer_base.shap_interaction_values(X_train)
+# Get SHAP values
+shap_values_base = explainer_base(data_df)
+
 col1, col2, col3 , col4, col5 = st.columns(5)
 
 with col1:
@@ -154,6 +161,12 @@ if center_button:
     result1 = "Base model's prediciton: $" + str(base_model_prediction)
     html_str = f"""<style>p.a {{font: bold {28}px Courier;color:#1D5D9B;}}</style><p class="a">{result1}</p>"""   
     st.markdown(html_str, unsafe_allow_html=True)
+
+    st.subheader("SHAP Summary Plot")
+    st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
+    shap.plots.beeswarm(shap_explainer_base, max_display=10)
+    st.markdown("</div>", unsafe_allow_html=True)
+    st.pyplot()
 
     result2 = "Optimized model's prediciton: $" + str(optimized_model_prediction)
     html_str2 = f"""<style>p.a {{font: bold {28}px Courier;color:#1D5D9B;}}</style><p class="a">{result2}</p>"""
