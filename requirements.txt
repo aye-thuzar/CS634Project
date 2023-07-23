@@ -5,4 +5,3 @@ matplotlib
 lightgbm 
 shap
 xgboost
-python == 3.11
