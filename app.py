@@ -110,8 +110,8 @@ st.write(data_df.head())
 diff = np.array(max_list)-np.array(min_list)
 data_df = (data_df.values - np.array(min_list)) / diff
 
-st.write("Normalized input data")
-st.write(data_df)
+#st.write("Normalized input data")
+#st.write(data_df)
 
 # load trained models
 lgbm_base = pickle.load(open('lgbm_base.pkl', 'rb'))
@@ -166,10 +166,10 @@ if center_button:
         st.write("")
 
     with col2:
-        st.subheader("USD "+ str(base_model_prediction))
+        st.subheader("Base model's prediciton: USD "+ str(base_model_prediction))
         st.subheader("       AND ")
 
-        st.subheader(" USD "+str(optimized_model_prediction))
+        st.subheader("Optimized model's prediciton: USD USD "+str(optimized_model_prediction))
 
 
     with col3:
