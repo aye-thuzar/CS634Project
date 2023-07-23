@@ -2,6 +2,6 @@ streamlit
 pandas
 numpy
 matplotlib
-lightgbm 
+lightgbm == 3.11
 shap
 xgboost
