@@ -46,14 +46,14 @@ description_list = [
 min_list = [
  1.0,
  1950.0,
- 0.0,
- 0.0,
+ 800.0,
+ 500.0,
  334.0,
  1.0,
  1.0,
  1.0,
  1.0,
- 0.0
+ 1.0
 ]
 
 max_list = [
@@ -157,7 +157,7 @@ if center_button:
     st.write("")
 
     #with col2:
-    st.subheader("Base model's prediciton: USD "+ str(base_model_prediction))
+     st.markdown("<h5 style='text-align: center; color: #1B9E91;'>Base model's prediciton: USD "+ str(base_model_prediction)</h5>", unsafe_allow_html=True)
     st.subheader("       AND ")
 
     st.subheader("Optimized model's prediciton: USD USD "+str(optimized_model_prediction))
@@ -166,7 +166,7 @@ if center_button:
     #with col3:
     st.write("")
 
-    st.markdown("<h5 style='text-align: center; color: #1B9E91;'>The price range of your house is between:</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: center; color: #1B9E91;'>SHAP plots</h5>", unsafe_allow_html=True)
 
     
 
