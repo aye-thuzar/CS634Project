@@ -9,10 +9,6 @@ from sklearn.preprocessing import MinMaxScaler
 
 scaler = MinMaxScaler()
 
-# load trained model
-lgbm_base = pickle.load(open('lgbm_base.pkl', 'rb'))
-lgbm_opt = pickle.load(open('lgbm_optimized.pkl', 'rb'))
-
 np.random.seed(42)
 
 st.markdown("<body style ='color:#E2E0D9;'></body>", unsafe_allow_html=True)
@@ -113,7 +109,13 @@ data_df = (data_df.values - data_df.values.min()) / (data_df.values.max() - data
 
 st.write(data_df)
 
-y_pred_base = lgbm_base.predict(data_df)
+# load trained model
+lgbm_base = pickle.load(open('lgbm_base.pkl', 'rb'))
+lgbm_opt = pickle.load(open('lgbm_optimized.pkl', 'rb'))
+
+st.write(lgbm_base)
+
+#y_pred_base = lgbm_base.predict(data_df)
 #y_pred_optimized = lgbm_opt.predict(data_df)
 
 col1, col2, col3 , col4, col5 = st.columns(5)
