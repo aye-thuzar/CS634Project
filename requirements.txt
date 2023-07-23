@@ -4,3 +4,4 @@ numpy
 matplotlib
 lightgbm 
 shap
+xgboost
