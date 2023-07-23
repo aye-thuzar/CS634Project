@@ -46,7 +46,7 @@ description_list = [
  'Where are the physical locations within Ames city limits?',
  'Where is the location of the Garage?',
  'What is the condition of the sale?',
- 'Does the house have walkout or garden-level basement walls?'
+ 'What is the basement exposure: walkout or garden-level basement walls?'
  ]
 
 min_list = [
