@@ -17,9 +17,9 @@ st.write("If you want to know the numbers that you picked for some of the featur
 st.write("[link to the categorical encoding](https://github.com/aye-thuzar/CS634Project/edit/main/docs.md)")
 
 
-'''
-setting up the sliders and getting the input the sliders
-'''
+
+#setting up the sliders and getting the input the sliders
+
 name_list = [
  'OverallQual',
  'YearBuilt',
@@ -104,9 +104,9 @@ data_df = pd.DataFrame.from_dict(data_df)
 st.write("Please adjust the feature values using the slides on the left: ")
 st.write(data_df.head())
 
-'''
-normalizing the data
-'''
+
+#normalizing the data
+
 diff = np.array(max_list)-np.array(min_list)
 data_df = (data_df.values - np.array(min_list)) / diff
 
@@ -119,7 +119,7 @@ lgbm_opt = pickle.load(open('lgbm_optimized.pkl', 'rb'))
 
 st.write(lgbm_base)
 
-#y_pred_base = lgbm_base.predict(data_df)
+y_pred_base = lgbm_base.predict(data_df)
 #y_pred_optimized = lgbm_opt.predict(data_df)
 
 col1, col2, col3 , col4, col5 = st.columns(5)
