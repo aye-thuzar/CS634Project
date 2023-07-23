@@ -21,6 +21,7 @@ st.markdown("<h4 style='text-align: center; color: #1B9E91;'>House Price Predict
 
 st.markdown("<h5 style='text-align: center; color: #1B9E91;'>Optuna optimized LGBM model to estimate the range of house prices based on your selection. </h5>", unsafe_allow_html=True)
 
+st.write("If you want to know the numbers that you picked for some of the features such as Overall Quality, Sale Conditions etc., please check the following link")
 st.write("[link to the categorical encoding](https://github.com/aye-thuzar/CS634Project/edit/main/docs.md)")
 
 name_list = [
