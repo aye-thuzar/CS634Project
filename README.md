@@ -29,7 +29,7 @@ Optuna optimized XGBoost's RMSE: 28047
 
 Baseline LGBM's RMSE: 34110
 
-Optuna optimized LGBM's RMSE: 27958
+Optuna optimized LGBM's RMSE: 28329
 
 ***********
 
