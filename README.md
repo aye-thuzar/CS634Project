@@ -104,45 +104,46 @@ Before delving into the implementation, the notebook begins by importing essenti
 7. **xgboost and lightgbm:** Libraries for gradient boosting algorithms. XGBoost and LGBM are known for their excellent performance in regression tasks like house price prediction.
 8. **pickle:** A library for saving and loading Python objects. This is utilized for storing trained models for later use.
 
-Data Processing and Feature Selection:
+### Data Processing and Feature Selection:
+
 The notebook proceeds with comprehensive data processing and feature selection steps to prepare the data for training the machine learning models. The following steps are performed:
 
-Importing Data: The dataset, containing information about houses and their attributes, is imported using the pd.read_csv() function. The data is then divided into the training set (dataset) and test set (testset) for model evaluation.
+1. **Importing Data:** The dataset, containing information about houses and their attributes, is imported using the pd.read_csv() function. The data is then divided into the training set (dataset) and test set (testset) for model evaluation.
 
-Exploratory Data Analysis: An initial exploration of the training dataset is conducted using the info() function, providing insights into the dataset's structure and missing values.
+2. **Exploratory Data Analysis:** An initial exploration of the training dataset is conducted using the info() function, providing insights into the dataset's structure and missing values.
 
-Setting the Target Variable: The target variable, SalePrice, is separated from the training set and stored in a separate numpy array y. This is the variable we want the models to predict.
+3. **Setting the Target Variable:** The target variable, SalePrice, is separated from the training set and stored in a separate numpy array y. This is the variable we want the models to predict.
 
-Feature Selection based on Correlation: Columns with low correlation (< 0.4) with the target variable are dropped from both the training and test sets. Correlation values are calculated using the corr() function.
+4. **Feature Selection based on Correlation:** Columns with low correlation (< 0.4) with the target variable are dropped from both the training and test sets. Correlation values are calculated using the corr() function.
 
-Feature Selection based on Variance: Columns with low variance (< 1) are dropped from both the training and test sets. Variance values are calculated using the var() function.
+5. **Feature Selection based on Variance:** Columns with low variance (< 1) are dropped from both the training and test sets. Variance values are calculated using the var() function.
 
-Feature Selection based on High Correlation: Columns with high correlation (> 0.5) with other features are dropped from both the training and test sets. These columns are identified using the correlation matrix and the corr() function.
+6. **Feature Selection based on High Correlation:** Columns with high correlation (> 0.5) with other features are dropped from both the training and test sets. These columns are identified using the correlation matrix and the corr() function.
 
-Handling Missing Data: Missing values in numerical columns (numerical) are filled with the value 0 based on domain knowledge. Missing values in categorical columns (categorical) are filled with the string 'None'.
+7. **Handling Missing Data:** Missing values in numerical columns (numerical) are filled with the value 0 based on domain knowledge. Missing values in categorical columns (categorical) are filled with the string 'None'.
 
-Label Encoding: Categorical data is encoded using the LabelEncoder from sklearn.preprocessing. This step converts categorical data into numerical format, making it suitable for model training.
+8. **Label Encoding:** Categorical data is encoded using the LabelEncoder from sklearn.preprocessing. This step converts categorical data into numerical format, making it suitable for model training.
 
-Final Feature Selection using Decision Trees (Random Forest): The notebook employs a Random Forest Regressor to identify the top 10 features that contribute most to predicting the target variable. The least important features are dropped from both the training and test sets.
+9. **Final Feature Selection using Decision Trees (Random Forest):** The notebook employs a Random Forest Regressor to identify the top 10 features that contribute most to predicting the target variable. The least important features are dropped from both the training and test sets.
 
-Normalizing Data: Finally, the data is normalized using Min-Max scaling to bring all feature values within the range of 0 to 1. This ensures that features with different scales do not dominate the model training process.
+10. **Normalizing Data:** Finally, the data is normalized using Min-Max scaling to bring all feature values within the range of 0 to 1. This ensures that features with different scales do not dominate the model training process.
 
-Model Training and Evaluation:
+### Model Training and Evaluation:
+
 With the data fully processed and features selected, the training data (X) is prepared and used to train the XGBoost and LGBM models. The following steps are performed:
 
-XGBoost Model Training: The XGBoost model is initialized using the xgb.XGBRegressor class from the xgboost library. Hyperparameters such as the objective function, maximum depth of the trees, and the number of boosting rounds are set. The model is then trained on the training data (X) and the target variable (y) using the fit() method.
+1. **XGBoost Model Training:** The XGBoost model is initialized using the xgb.XGBRegressor class from the xgboost library. Hyperparameters such as the objective function, maximum depth of the trees, and the number of boosting rounds are set. The model is then trained on the training data (X) and the target variable (y) using the fit() method.
 
-Feature Importances: The feature importances are computed using the trained XGBoost model. The top 10 features that contribute most to the prediction are visualized using a bar plot. This provides valuable insights into which features play a significant role in determining house prices.
+2. **Feature Importances:** The feature importances are computed using the trained XGBoost model. The top 10 features that contribute most to the prediction are visualized using a bar plot. This provides valuable insights into which features play a significant role in determining house prices.
 
-Prediction on Test Data: The trained XGBoost model is used to predict house prices for the test set (testset). The predictions are saved for later comparison and evaluation.
+3. **Prediction on Test Data:** The trained XGBoost model is used to predict house prices for the test set (testset). The predictions are saved for later comparison and evaluation.
 
-Final Submission: The predicted house prices for the test set are then saved in a format suitable for submission. This step prepares the model for real-world use and further evaluation.
+4. **Data Splitting for Testing:** Before training the XGBoost model, the training data (X) is split into training and testing sets using the train_test_split() function from sklearn.model_selection. The testing set will be used to evaluate the model's performance.
 
-Data Splitting for Testing: Before training the XGBoost model, the training data (X) is split into training and testing sets using the train_test_split() function from sklearn.model_selection. The testing set will be used to evaluate the model's performance.
+5. **Model Evaluation:** The performance of the XGBoost model is evaluated using the testing data (X_test). The Mean Absolute Error (MAE), Mean Squared Error (MSE), and Root Mean Squared Error (RMSE) are computed and printed to evaluate the model's accuracy in predicting house prices.
 
-Model Evaluation: The performance of the XGBoost model is evaluated using the testing data (X_test). The Mean Absolute Error (MAE), Mean Squared Error (MSE), and Root Mean Squared Error (RMSE) are computed and printed to evaluate the model's accuracy in predicting house prices.
+### SHAP (SHapley Additive exPlanations) Analysis for XGBoost:
 
-SHAP (SHapley Additive exPlanations) Analysis for XGBoost:
 To gain a deeper understanding of the XGBoost model's predictions, SHAP values are computed. SHAP values provide insights into how each feature contributes to the model's predictions for individual data points. The following SHAP plots are generated to visualize the feature contributions and interactions:
 
 Waterfall Plot: A waterfall plot is created for the first observation in the training data. It shows how each feature contributes to the difference between the predicted price and the expected value. This plot helps identify the most influential features for a particular prediction.
