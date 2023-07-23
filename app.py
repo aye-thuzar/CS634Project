@@ -187,7 +187,17 @@ if center_button:
     html_str2 = f"""<style>p.a {{font: bold {28}px Courier;color:#1D5D9B;}}</style><p class="a">{result2}</p>"""
     st.markdown(html_str2, unsafe_allow_html=True)
 
+    st.markdown("<h4 style='text-align: center; color: #1B9E91;'>SHAP Summary Plot</h4>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
+    shap.plots.beeswarm(shap_values_opt, max_display=10)
+    st.markdown("</div>", unsafe_allow_html=True)
+    st.pyplot()
 
+    st.markdown("<h4 style='text-align: center; color: #1B9E91;'>SHAP Interaction Plot</h4>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
+    shap.summary_plot(shap_interaction_opt, max_display=10)
+    st.markdown("</div>", unsafe_allow_html=True)
+    st.pyplot()
     
 
     
