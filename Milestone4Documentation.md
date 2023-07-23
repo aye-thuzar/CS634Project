@@ -50,6 +50,10 @@ Here are the 10 features I selected:
 All the attributes are encoded and normalized before splitting into train and test with 80% train and 20% test.
 
 ## XGBoost Model (baseline)
+```py
+xgb_model = xgb.XGBRegressor(objective="reg:squarederror",max_depth=3)
+xgb_model.fit(X_train, y_train)
+```
 
 ## SHAP for XGBoost baseline
 
@@ -70,6 +74,8 @@ All the attributes are encoded and normalized before splitting into train and te
 ## SHAP for Optimized XGBoost 
 
 ## Pickled the models for streamlit app
+
+Finally, the trained models are saved using pickle to be used with Streamlit for deployment. Pickling allows the models to be easily loaded and utilized in real-world applications, making the model predictions readily available for end-users.
 
 *************
 
