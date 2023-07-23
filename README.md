@@ -41,7 +41,7 @@ Optuna optimized LGBM's RMSE: 28329
 
 Dataset: https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/overview
 
-**milestone-1:** 
+**milestone-1:** https://github.com/aye-thuzar/CS634Project/blob/main/milestone-1/README_milestone1.md
 
 **Data Processing and Feature Selection:**
 
