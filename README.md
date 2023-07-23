@@ -101,7 +101,7 @@ For milestone 2, I used an XGBoost Model with objective="reg:squarederror" and m
 
 **Milestone 3:**
 
-For milestone 3, I used light gradient boosting machine (LGBM) with default parameters for baseline and hyperparameter-tuned with Optuna for the optimized model. The results are stated at the beginning of my readme file.
+For milestone 3, I used light gradient boosting machine (LGBM) with default parameters for baseline and hyperparameter-tuned with Optuna for the optimized model. The results are stated at the beginning of my readme file. I also hyperparameter-tuned my milestone-2 XGBoost model.
 
 I tested the pickled models in this notebook: https://github.com/aye-thuzar/CS634Project/blob/main/CS634Project_Milestone3_AyeThuzar_Testing.ipynb
 
