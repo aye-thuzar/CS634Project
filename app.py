@@ -125,7 +125,7 @@ y_pred = xgb_base.predict(data_df)
 y_pred_optimized = xgb_opt.predict(data_df)
 
 explainer_base = shap.TreeExplainer(xgb_base)
-shap_interaction_base = explainer_base.shap_interaction_values(X_train)
+shap_interaction_base = explainer_base.shap_interaction_values(data_df)
 # Get SHAP values
 shap_values_base = explainer_base(data_df)
 
