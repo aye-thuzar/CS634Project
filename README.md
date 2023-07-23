@@ -25,7 +25,7 @@ Results
 
 XGBoost Model's RMSE: 28986  (Milestone-2)
 
-Optuna optimized XGBoost's RMSE: 
+Optuna optimized XGBoost's RMSE: 28047
 
 Baseline LGBM's RMSE: 34110
 
