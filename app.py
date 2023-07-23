@@ -12,7 +12,7 @@ np.random.seed(42)
 
 st.markdown("<body style ='color:#E2E0D9;'></body>", unsafe_allow_html=True)
 
-st.markdown("<h4 style='text-align: center; color: #1B9E91;'>House Price Prediction in Ames, Iowa</h4>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #1B9E91;'>House Price Prediction in Ames, Iowa</h1>", unsafe_allow_html=True)
 
 st.write("If you want to know the numbers that you picked for some of the features such as Overall Quality, Sale Conditions etc., please check the following link")
 st.write("[link to the categorical encoding](https://github.com/aye-thuzar/CS634Project/edit/main/docs.md)")
@@ -171,7 +171,7 @@ if center_button:
     html_str = f"""<style>p.a {{font: bold {28}px Courier;color:#1D5D9B;}}</style><p class="a">{result1}</p>"""   
     st.markdown(html_str, unsafe_allow_html=True)
 
-    st.subheader("SHAP Summary Plot")
+    st.markdown("<h4 style='text-align: center; color: #1B9E91;'>SHAP Summary Plot</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
     shap.plots.beeswarm(shap_values_base, max_display=10)
     st.markdown("</div>", unsafe_allow_html=True)
