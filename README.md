@@ -103,6 +103,8 @@ For milestone 2, I used an XGBoost Model with objective="reg:squarederror" and m
 
 For milestone 3, I used light gradient boosting machine (LGBM) with default parameters for baseline and hyperparameter-tuned with Optuna for the optimized model. The results are stated at the beginning of my readme file.
 
+For the sliders in the app, for the categorical features are encoded as described here: https://github.com/aye-thuzar/CS634Project/edit/main/docs.md
+
 **References:**
 
 https://towardsdatascience.com/analysing-interactions-with-shap-8c4a2bc11c2a
