@@ -58,7 +58,7 @@ description_list = [
  'In which year was the Original construction date?',
  'What is the Total square feet of basement area?',
  'What is the Above grade (ground) living area in square feet?',
- 'What is the Masonry veneer area in square feet??',
+ 'What is the Masonry veneer area in square feet?',
  'What is the Quality of the basement finished area?',
  'Where are the physical locations within Ames city limits?',
  'Where is the location of the Garage?',
