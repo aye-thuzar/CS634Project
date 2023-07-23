@@ -50,9 +50,18 @@ Here are the 10 features I selected:
 All the attributes are encoded and normalized before splitting into train and test with 80% train and 20% test.
 
 ## XGBoost Model (baseline)
+The XGBoost model is initialized using the xgb.XGBRegressor class from the xgboost library. Hyperparameters such as the objective function, maximum depth of the trees, and the number of boosting rounds are set. The model is then trained on the training data (X) and the target variable (y) using the fit() method.
 ```py
 xgb_model = xgb.XGBRegressor(objective="reg:squarederror",max_depth=3)
 xgb_model.fit(X_train, y_train)
+```
+The model performance is tested for MAE (Mean Absolute Error), MSE (Mean Squared Error), RMSE (Root Mean Squared Error), and average of y_test.
+```py
+xgbt_pred = xgb_model.predict(X_test)
+print("MAE test score:", int(mean_absolute_error(y_test, xgbt_pred)))
+print("MSE test score:", int(mean_squared_error(y_test, xgbt_pred)))
+print("RMSE test score:", int(sqrt(mean_squared_error(y_test, xgbt_pred))))
+y_test.mean()
 ```
 
 ## SHAP for XGBoost baseline
