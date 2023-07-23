@@ -164,7 +164,7 @@ if center_button:
 
     st.subheader("SHAP Summary Plot")
     st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
-    shap.plots.beeswarm(shap_explainer_base, max_display=10)
+    shap.plots.beeswarm(explainer_base, max_display=10)
     st.markdown("</div>", unsafe_allow_html=True)
     st.pyplot()
 
