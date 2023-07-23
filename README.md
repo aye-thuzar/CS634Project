@@ -11,9 +11,11 @@ pinned: false
 
 # CS634Project
 
-Milestone-3 notebook: [[https://colab.research.google.com/drive/17-7A0RkGcwqcJw0IcSvkniDmhbn5SuXe]](https://github.com/aye-thuzar/CS634Project/blob/milestone-3/CS634Project_Milestone3_AyeThuzar.ipynb)(https://colab.research.google.com/drive/1BeoZ4Dxhgd6OcUwPhk6rKCeFnDFMUCmt#scrollTo=TZ4Ci-YXOSl6)
+Milestone-3 notebook: https://github.com/aye-thuzar/CS634Project/blob/main/CS634Project_Milestone3_Final_AyeThuzar.ipynb
 
-Hugging Face App: 
+Hugging Face App: https://huggingface.co/spaces/ayethuzar/HousePricePredictionApp
+
+Landing Page for the App:
 
 App Demonstration Video: 
 
@@ -25,43 +27,15 @@ Results
 
 XGBoost Model's RMSE: 28986  (Milestone-2)
 
-Baseline LGBM's RMSE: 26233
+Optuna optimized XGBoost's RMSE: 28047
 
-Optuna optimized LGBM's RMSE: 13799.282803291926
+Baseline LGBM's RMSE: 34110
 
-***********
-
-Hyperparameter Tuning with Optuna
-
-************
-
-Total number of trials:  120
-
-Best RMSE score on validation data: 12338.665498601415
-
-**Best params:**
-
-boosting_type :	 goss
-
-reg_alpha :	 3.9731274536451826
-
-reg_lambda :	 0.8825276525195174
-
-colsample_bytree :	 1.0
-
-subsample :	 1.0
-
-learning_rate :	 0.05
-
-max_depth :	 6
-
-num_leaves :	 48
-
-min_child_samples :	 1
+Optuna optimized LGBM's RMSE: 28329
 
 ***********
 
-## Documentation for Milestone 4
+## Documentation 
 
 ***********
 
@@ -101,7 +75,17 @@ For milestone 2, I used an XGBoost Model with objective="reg:squarederror" and m
 
 **Milestone 3:**
 
-For milestone 3, I used light gradient boosting machine (LGBM) with default parameters for baseline and hyperparameter-tuned with Optuna for the optimized model. The results are stated at the beginning of my readme file.
+For milestone 3, I used a light gradient boosting machine (LGBM) with default parameters for baseline and hyperparameter-tuned with Optuna for the optimized model. The results are stated at the beginning of my readme file. I also hyperparameter-tuned my milestone-2 XGBoost model.
+
+I tested the pickled models in this notebook: https://github.com/aye-thuzar/CS634Project/blob/main/CS634Project_Milestone3_AyeThuzar_Testing.ipynb
+
+For the sliders of the categorical features in the app, the numbers and the corresponding meanings are described here: https://github.com/aye-thuzar/CS634Project/edit/main/docs.md
+
+**Milestone 4:**
+
+Please see Milestone4Documentation.md: https://github.com/aye-thuzar/CS634Project/blob/main/Milestone4Documentation.md
+
+Here is the landing page for my app: 
 
 **References:**
 
