@@ -152,11 +152,11 @@ if center_button:
     st.write("")
 
     result1 = "Base model's prediciton: $" + str(base_model_prediction)
-    html_str = f"""<style>p.a {{font: bold {28}px Courier;color:#E9B384;}}</style><p class="a">{result1}</p>"""   
+    html_str = f"""<style>p.a {{font: bold {28}px Courier;color:#1D5D9B;}}</style><p class="a">{result1}</p>"""   
     st.markdown(html_str, unsafe_allow_html=True)
 
     result2 = "Optimized model's prediciton: $" + str(optimized_model_prediction)
-    html_str2 = f"""<style>p.a {{font: bold {28}px Courier;color:#E9B384;}}</style><p class="a">{result2}</p>"""
+    html_str2 = f"""<style>p.a {{font: bold {28}px Courier;color:#1D5D9B;}}</style><p class="a">{result2}</p>"""
     st.markdown(html_str2, unsafe_allow_html=True)
 
 
