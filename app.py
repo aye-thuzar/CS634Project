@@ -157,7 +157,7 @@ if center_button:
     st.write("")
 
     #with col2:
-    st.markdown("<h5 style='text-align: center; color: #1B9E91;'>Base model's prediciton: USD "+ str(base_model_prediction)</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: center; color: #1B9E91;'>Base model's prediciton: USD + str(base_model_prediction)</h5>", unsafe_allow_html=True)
     st.subheader("       AND ")
 
     st.subheader("Optimized model's prediciton: USD USD "+str(optimized_model_prediction))
