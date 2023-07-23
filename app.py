@@ -1,13 +1,9 @@
 
-
+# importing libraries
 import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-
-from sklearn.preprocessing import MinMaxScaler
-
-scaler = MinMaxScaler()
 
 np.random.seed(42)
 
@@ -20,6 +16,10 @@ st.markdown("<h5 style='text-align: center; color: #1B9E91;'>Optuna optimized LG
 st.write("If you want to know the numbers that you picked for some of the features such as Overall Quality, Sale Conditions etc., please check the following link")
 st.write("[link to the categorical encoding](https://github.com/aye-thuzar/CS634Project/edit/main/docs.md)")
 
+
+'''
+setting up the sliders and getting the input the sliders
+'''
 name_list = [
  'OverallQual',
  'YearBuilt',
@@ -104,9 +104,13 @@ data_df = pd.DataFrame.from_dict(data_df)
 st.write("Please adjust the feature values using the slides on the left: ")
 st.write(data_df.head())
 
-# normalizing the data
-data_df = (data_df.values - data_df.values.min()) / (data_df.values.max() - data_df.values.min())
+'''
+normalizing the data
+'''
+diff = np.array(min_list)-np.array(max_list)
+data_df = (data_df.values - np.array(min_list)) / diff
 
+st.write("Normalized input data")
 st.write(data_df)
 
 # load trained model
