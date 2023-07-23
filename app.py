@@ -109,7 +109,7 @@ st.write(data_df.head())
 #normalizing the data
 
 diff = np.array(max_list)-np.array(min_list)
-data_df = (data_df.values - np.array(min_list)) / diff
+data_df_normalized = (data_df.values - np.array(min_list)) / diff
 
 #st.write("Normalized input data")
 #st.write(data_df)
@@ -122,13 +122,21 @@ xgb_opt = pickle.load(open('xgb_optimized.pkl', 'rb'))
 
 
 
-y_pred = xgb_base.predict(data_df)
-y_pred_optimized = xgb_opt.predict(data_df)
+y_pred = xgb_base.predict(data_df_normalized)
+y_pred_optimized = xgb_opt.predict(data_df_normalized)
 
+# SHAP for the base model
 explainer_base = shap.TreeExplainer(xgb_base)
 shap_interaction_base = explainer_base.shap_interaction_values(data_df)
 # Get SHAP values
 shap_values_base = explainer_base(data_df)
+
+
+# SHAP for the optimized model
+explainer_opt = shap.TreeExplainer(xgb_opt)
+shap_interaction_opt = explainer_opt.shap_interaction_values(data_df)
+# Get SHAP values
+shap_values_opt = explainer_opt(data_df)
 
 col1, col2, col3 , col4, col5 = st.columns(5)
 
