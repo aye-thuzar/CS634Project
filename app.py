@@ -113,15 +113,16 @@ data_df = (data_df.values - np.array(min_list)) / diff
 st.write("Normalized input data")
 st.write(data_df)
 
-# load trained model
+# load trained models
 lgbm_base = pickle.load(open('lgbm_base.pkl', 'rb'))
 lgbm_opt = pickle.load(open('lgbm_opt_test.pkl', 'rb'))
-xgb = pickle.load(open('xgb_model.pkl', 'rb'))
+xgb_base = pickle.load(open('xgb_base.pkl', 'rb'))
+xgb_opt = pickle.load(open('xgb_optimized.pkl', 'rb'))
 
 
 
-y_pred_xgb = xgb.predict(data_df)
-y_pred_optimized = lgbm_opt.predict(data_df)
+y_pred = xgb_base.predict(data_df)
+y_pred_optimized = xgb_opt.predict(data_df)
 
 col1, col2, col3 , col4, col5 = st.columns(5)
 
@@ -154,8 +155,8 @@ if center_button:
 
     col1, col2 = st.columns([3, 3])
 
-    lower_number = "{:,.2f}".format(y_pred_xgb[0])
-    higher_number = "{:,.2f}".format(y_pred_xgb[0])
+    base_model_prediction = "{:,.2f}".format(y_pred[0])
+    optimized_model_prediction = "{:,.2f}".format(y_pred_optimized[0])
 
     col1, col2, col3 = st.columns(3)
 
