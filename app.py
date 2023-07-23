@@ -107,7 +107,7 @@ st.write(data_df.head())
 '''
 normalizing the data
 '''
-diff = np.array(min_list)-np.array(max_list)
+diff = np.array(max_list)-np.array(min_list)
 data_df = (data_df.values - np.array(min_list)) / diff
 
 st.write("Normalized input data")
