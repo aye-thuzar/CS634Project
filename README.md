@@ -61,7 +61,7 @@ min_child_samples :	 1
 
 ***********
 
-## Documentation for Milestone 4
+## Documentation 
 
 ***********
 
