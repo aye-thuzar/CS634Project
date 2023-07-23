@@ -36,26 +36,6 @@ name_list = [
  'SaleCondition',
  'BsmtExposure']
 
-name_list_train = [
- 'OverallQual',
- 'YearBuilt',
- 'TotalBsmtSF',
- 'GrLivArea',
- 'MasVnrArea',
- 'BsmtFinType1',
- 'Neighborhood',
- 'GarageType',
- 'SaleCondition',
- 'BsmtExposure']
-
-#data = pd.read_csv('data/train.csv')
-
-#data = data[name_list_train].values
-
-#st.write(data[0])
-
-#scaler.fit(data)
-
 description_list = [
  'What is the Overall material and finish quality?',
  'In which year was the Original construction date?',
@@ -108,8 +88,6 @@ with st.sidebar:
       
     st.write("[Kaggle Link to Data Set](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques)")
 
-    
-
 
 data_df = {
 
@@ -125,8 +103,6 @@ data_df = {
  'BsmtExposure': [BsmtExposure]
 }
 
-#negloglik = lambda y, p_y: -p_y.log_prob(y) # note this
-
 data_df = pd.DataFrame.from_dict(data_df)
 
 #data_df_normal = scaler.transform(data_df)
@@ -135,8 +111,6 @@ st.write(data_df.head())
 
 y_pred_base = lgbm_base.predict(data_df)
 #y_pred_optimized = lgbm_opt.predict(data_df)
-
-
 
 col1, col2, col3 , col4, col5 = st.columns(5)
 
