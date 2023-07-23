@@ -87,22 +87,22 @@ Please see Milestone4Documentation.md: https://github.com/aye-thuzar/CS634Projec
 
 Here is the landing page for my app: https://sites.google.com/view/cs634-realestatehousepricepred/home
 
-**Notebook:**
+## Notebook:
 
 Real estate pricing is a complex and crucial task that heavily relies on various factors influencing property values. In recent years, machine learning models have emerged as powerful tools for predicting house prices, allowing stakeholders to make informed decisions in the real estate market. This Python notebook presents a comprehensive approach to predicting house prices using feature selection techniques, XGBoost, and Light Gradient Boosting Machine (LGBM) models. By employing cutting-edge machine learning algorithms and interpretability techniques, this notebook aims to build accurate, reliable, and transparent models for house price prediction.
 
-***Libraries Used:***
+### Libraries Used:
 
 Before delving into the implementation, the notebook begins by importing essential Python libraries, each serving a specific purpose throughout the analysis and model development:
 
-1.shap: A library for explaining machine learning models. SHAP values provide insights into how features contribute to model predictions, enhancing interpretability.
-1.sklearn: The popular machine learning library with tools for classification, regression, clustering, and more. It provides utilities for data preprocessing, model evaluation, and train-test splitting.
-1.optuna: An optimization framework for hyperparameter tuning. Optuna efficiently searches the hyperparameter space to find the best set of hyperparameters for the models.
-1.math, numpy, and pandas: Basic numerical and data manipulation libraries used for mathematical operations and data handling.
-1.matplotlib and seaborn: Libraries for data visualization, creating insightful plots and charts for better understanding of the data.
-1.graphviz: A library for visualizing decision trees. It helps in understanding the individual trees in the ensemble models.
-1.xgboost and lightgbm: Libraries for gradient boosting algorithms. XGBoost and LGBM are known for their excellent performance in regression tasks like house price prediction.
-1.pickle: A library for saving and loading Python objects. This is utilized for storing trained models for later use.
+1. **shap:** A library for explaining machine learning models. SHAP values provide insights into how features contribute to model predictions, enhancing interpretability.
+2. **sklearn:** The popular machine learning library with tools for classification, regression, clustering, and more. It provides utilities for data preprocessing, model evaluation, and train-test splitting.
+3. **optuna:** An optimization framework for hyperparameter tuning. Optuna efficiently searches the hyperparameter space to find the best set of hyperparameters for the models.
+4. **math, numpy, and pandas:** Basic numerical and data manipulation libraries used for mathematical operations and data handling.
+5. **matplotlib and seaborn:** Libraries for data visualization, creating insightful plots and charts for better understanding of the data.
+6. **graphviz:** A library for visualizing decision trees. It helps in understanding the individual trees in the ensemble models.
+7. **xgboost and lightgbm:** Libraries for gradient boosting algorithms. XGBoost and LGBM are known for their excellent performance in regression tasks like house price prediction.
+8. **pickle:** A library for saving and loading Python objects. This is utilized for storing trained models for later use.
 
 Data Processing and Feature Selection:
 The notebook proceeds with comprehensive data processing and feature selection steps to prepare the data for training the machine learning models. The following steps are performed:
