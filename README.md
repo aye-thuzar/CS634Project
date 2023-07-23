@@ -85,7 +85,7 @@ For the sliders of the categorical features in the app, the numbers and the corr
 
 Please see Milestone4Documentation.md: https://github.com/aye-thuzar/CS634Project/blob/main/Milestone4Documentation.md
 
-Here is the landing page for my app: 
+Here is the landing page for my app: https://sites.google.com/view/cs634-realestatehousepricepred/home
 
 **References:**
 
