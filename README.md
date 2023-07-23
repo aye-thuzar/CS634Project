@@ -81,7 +81,7 @@ For the sliders of the categorical features in the app, the numbers and the corr
 
 **Milestone 4:**
 
-Please see Milestone4Documentation.md
+Please see Milestone4Documentation.md: 
 
 Here is the landing page for my app: 
 
