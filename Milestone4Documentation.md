@@ -1,4 +1,4 @@
-#Milestone4Documentation
+# Milestone4Documentation
 
 Objective: Create a streamlit app with a baseline and an optimized model with Optuna to predict house prices in Ames, Iowa
 
@@ -14,6 +14,8 @@ Deliverables
 *************
 
 Github:
+
+Landing Page for the App: 
 
 Streamlit App:
 
