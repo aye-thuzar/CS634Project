@@ -120,7 +120,7 @@ xgb = pickle.load(open('xgb_model.pkl', 'rb'))
 
 st.write(lgbm_base)
 
-y_pred_base = xgb.predict(data_df)
+y_pred_xgb = xgb.predict(data_df)
 #y_pred_optimized = lgbm_opt.predict(data_df)
 
 col1, col2, col3 , col4, col5 = st.columns(5)
@@ -154,8 +154,8 @@ if center_button:
 
     col1, col2 = st.columns([3, 3])
 
-    lower_number = "{:,.2f}".format(int(y_pred_optimized.mean().numpy()-1.95*yhat.stddev().numpy()))
-    higher_number = "{:,.2f}".format(int(y_pred_optimized.mean().numpy()+1.95*yhat.stddev().numpy()))
+    lower_number = "{:,.2f}".format(int(y_pred_xgb.mean().numpy()-1.95*yhat.stddev().numpy()))
+    higher_number = "{:,.2f}".format(int(y_pred_xgb.mean().numpy()+1.95*yhat.stddev().numpy()))
 
     col1, col2, col3 = st.columns(3)
 
