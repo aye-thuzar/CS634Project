@@ -111,7 +111,7 @@ st.write(data_df.head())
 # normalizing the data
 data_df = (data_df.values - data_df.values.min()) / (data_df.values.max() - data_df.values.min())
 
-st.write(data_df.values)
+st.write(data_df)
 
 y_pred_base = lgbm_base.predict(data_df)
 #y_pred_optimized = lgbm_opt.predict(data_df)
