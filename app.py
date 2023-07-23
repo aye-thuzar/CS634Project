@@ -166,10 +166,10 @@ if center_button:
         st.write("")
 
     with col2:
-        st.subheader("USD "+ str(lower_number))
+        st.subheader("USD "+ str(base_model_prediction))
         st.subheader("       AND ")
 
-        st.subheader(" USD "+str(higher_number))
+        st.subheader(" USD "+str(optimized_model_prediction))
 
 
     with col3:
