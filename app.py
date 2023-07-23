@@ -11,14 +11,12 @@ st.markdown("<body style ='color:#E2E0D9;'></body>", unsafe_allow_html=True)
 
 st.markdown("<h4 style='text-align: center; color: #1B9E91;'>House Price Prediction in Ames, Iowa</h4>", unsafe_allow_html=True)
 
-st.markdown("<h5 style='text-align: center; color: #1B9E91;'>Optuna optimized LGBM model to estimate the range of house prices based on your selection. </h5>", unsafe_allow_html=True)
-
 st.write("If you want to know the numbers that you picked for some of the features such as Overall Quality, Sale Conditions etc., please check the following link")
 st.write("[link to the categorical encoding](https://github.com/aye-thuzar/CS634Project/edit/main/docs.md)")
 
 
 
-#setting up the sliders and getting the input the sliders
+#setting up the sliders and getting the input from the sliders
 
 name_list = [
  'OverallQual',
@@ -148,34 +146,27 @@ if center_button:
     with st.spinner('Calculating....'):
         time.sleep(2)
 
-
-
-    st.markdown("<h5 style='text-align: center; color: #1B9E91;'>The price range of your house is between:</h5>", unsafe_allow_html=True)
-
-
-    col1, col2 = st.columns([3, 3])
+    #col1, col2 = st.columns([3, 3])
 
     base_model_prediction = "{:,.2f}".format(y_pred[0])
     optimized_model_prediction = "{:,.2f}".format(y_pred_optimized[0])
 
-    col1, col2, col3 = st.columns(3)
+    #col1, col2, col3 = st.columns(3)
 
-    
+    #with col1:
+    st.write("")
 
-    with col1:
+    #with col2:
+    st.subheader("Base model's prediciton: USD "+ str(base_model_prediction))
+    st.subheader("       AND ")
+
+    st.subheader("Optimized model's prediciton: USD USD "+str(optimized_model_prediction))
+
+
+    #with col3:
         st.write("")
 
-    with col2:
-        st.subheader("Base model's prediciton: USD "+ str(base_model_prediction))
-        st.subheader("       AND ")
-
-        st.subheader("Optimized model's prediciton: USD USD "+str(optimized_model_prediction))
-
-
-    with col3:
-        st.write("")
-
-    
+    st.markdown("<h5 style='text-align: center; color: #1B9E91;'>The price range of your house is between:</h5>", unsafe_allow_html=True)
 
     
 
