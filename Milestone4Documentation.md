@@ -1,6 +1,6 @@
 # Milestone4Documentation
 
-Objective: Create a streamlit app with a baseline and an optimized model with Optuna to predict house prices in Ames, Iowa
+**Objective: Create a streamlit app with a baseline and an optimized model with Optuna to predict house prices in Ames, Iowa.**
 
 I use the following dataset to train the models:
 
@@ -24,16 +24,27 @@ Video demonstration of the Streamlit App:
 *************
 
 Data Processing and Feature Selection
+
 XGBoost Model (baseline)
+
 SHAP for XGBoost baseline
+
 Tuning XGBoostWIthOptuna
+
 Optimized XGBoost
+
 SHAP for Optimized XGBoost 
+
 XGBoost Model (baseline)
+
 SHAP for XGBoost baseline
+
 Tuning XGBoostWIthOptuna
+
 Optimized XGBoost
+
 SHAP for Optimized XGBoost 
+
 Pickled the models for streamlit app
 
 *************
