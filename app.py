@@ -17,9 +17,11 @@ np.random.seed(42)
 
 st.markdown("<body style ='color:#E2E0D9;'></body>", unsafe_allow_html=True)
 
-st.markdown("<h4 style='text-align: center; color: #1B9E91;'>House Price Prediction in Ames,Iowa</h4>", unsafe_allow_html=True)
+st.markdown("<h4 style='text-align: center; color: #1B9E91;'>House Price Prediction in Ames, Iowa</h4>", unsafe_allow_html=True)
 
 st.markdown("<h5 style='text-align: center; color: #1B9E91;'>Optuna optimized LGBM model to estimate the range of house prices based on your selection. </h5>", unsafe_allow_html=True)
+
+st.write("[link to the categorical encoding](https://github.com/aye-thuzar/CS634Project/edit/main/docs.md)")
 
 name_list = [
  'OverallQual',
