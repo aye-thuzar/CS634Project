@@ -66,15 +66,16 @@ description_list = [
  'Does the house have walkout or garden-level basement walls?'
  ]
 
-min_list = [1.0,
+min_list = [
+ 1.0,
  1950.0,
  0.0,
  0.0,
  334.0,
- 0.0,
- 0.0,
- 0.0,
- 0.0,
+ 1.0,
+ 1.0,
+ 1.0,
+ 1.0,
  0.0
 ]
 
@@ -84,10 +85,10 @@ max_list = [
  2336.0,
  6110.0,
  4692.0,
- 10.0,
- 10.0,
- 5.0,
- 10.0,
+ 7.0,
+ 25.0,
+ 7.0,
+ 6.0,
  5.0,
 ]
 
