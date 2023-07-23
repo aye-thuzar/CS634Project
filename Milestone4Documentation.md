@@ -63,6 +63,11 @@ print("MSE test score:", int(mean_squared_error(y_test, xgbt_pred)))
 print("RMSE test score:", int(sqrt(mean_squared_error(y_test, xgbt_pred))))
 y_test.mean()
 ```
+The results were as follows:
+- MAE test score: 18490
+- MSE test score: 840217398
+- RMSE test score: 28986
+- y_test.mean: 181370
 
 ## SHAP for XGBoost baseline
 
