@@ -87,49 +87,116 @@ Please see Milestone4Documentation.md: https://github.com/aye-thuzar/CS634Projec
 
 Here is the landing page for my app: https://sites.google.com/view/cs634-realestatehousepricepred/home
 
-**Notebook:** 
+**Notebook:**
 
-This Python notebook predicts house prices using feature selection and XGBoost, a popular gradient boosting algorithm. The dataset used for this prediction is taken from a CSV file containing information about various features of houses, such as lot size, number of rooms, neighborhood, and other related attributes. The main objective of this notebook is to create a machine learning model that can accurately predict house prices based on the given features.
+Real estate pricing is a complex and crucial task that heavily relies on various factors influencing property values. In recent years, machine learning models have emerged as powerful tools for predicting house prices, allowing stakeholders to make informed decisions in the real estate market. This Python notebook presents a comprehensive approach to predicting house prices using feature selection techniques, XGBoost, and Light Gradient Boosting Machine (LGBM) models. By employing cutting-edge machine learning algorithms and interpretability techniques, this notebook aims to build accurate, reliable, and transparent models for house price prediction.
 
-***Data Preprocessing and Feature Selection:***
+***Libraries Used:***
 
-The first step in the notebook involves data preprocessing and feature selection. Missing values are handled, and the data is cleaned and prepared for modeling. Feature selection techniques are applied to identify the most relevant features for predicting house prices. By selecting the most informative features, the model's accuracy is expected to improve significantly.
+Before delving into the implementation, the notebook begins by importing essential Python libraries, each serving a specific purpose throughout the analysis and model development:
 
-***Building the XGBoost Regression Model:***
+1.shap: A library for explaining machine learning models. SHAP values provide insights into how features contribute to model predictions, enhancing interpretability.
+1.sklearn: The popular machine learning library with tools for classification, regression, clustering, and more. It provides utilities for data preprocessing, model evaluation, and train-test splitting.
+1.optuna: An optimization framework for hyperparameter tuning. Optuna efficiently searches the hyperparameter space to find the best set of hyperparameters for the models.
+1.math, numpy, and pandas: Basic numerical and data manipulation libraries used for mathematical operations and data handling.
+1.matplotlib and seaborn: Libraries for data visualization, creating insightful plots and charts for better understanding of the data.
+1.graphviz: A library for visualizing decision trees. It helps in understanding the individual trees in the ensemble models.
+1.xgboost and lightgbm: Libraries for gradient boosting algorithms. XGBoost and LGBM are known for their excellent performance in regression tasks like house price prediction.
+1.pickle: A library for saving and loading Python objects. This is utilized for storing trained models for later use.
 
-Next, the focus shifts to building an XGBoost regression model to predict house prices. The data preprocessing and feature selection steps discussed earlier have been incorporated into the XGBoost model training process. This ensures that the model is trained on the most important features, enhancing its predictive capabilities.
+Data Processing and Feature Selection:
+The notebook proceeds with comprehensive data processing and feature selection steps to prepare the data for training the machine learning models. The following steps are performed:
 
-***Model Evaluation and SHAP Analysis:***
+Importing Data: The dataset, containing information about houses and their attributes, is imported using the pd.read_csv() function. The data is then divided into the training set (dataset) and test set (testset) for model evaluation.
 
-The performance of the XGBoost model is evaluated using Mean Absolute Error (MAE), Mean Squared Error (MSE), and Root Mean Squared Error (RMSE). Additionally, SHAP (SHapley Additive exPlanations) values are computed to understand the feature importance and contributions to the model's predictions. SHAP values provide valuable insights into the factors driving the model's decisions.
+Exploratory Data Analysis: An initial exploration of the training dataset is conducted using the info() function, providing insights into the dataset's structure and missing values.
 
-***Hyperparameter Tuning with Optuna:***
+Setting the Target Variable: The target variable, SalePrice, is separated from the training set and stored in a separate numpy array y. This is the variable we want the models to predict.
 
-To further improve the XGBoost model's performance, hyperparameter tuning is performed using Optuna, an optimization framework for hyperparameter tuning. Hyperparameter tuning is a crucial step in finding the best set of hyperparameters for the XGBoost model, resulting in better predictions.
+Feature Selection based on Correlation: Columns with low correlation (< 0.4) with the target variable are dropped from both the training and test sets. Correlation values are calculated using the corr() function.
 
-***Comparison with Light Gradient Boosting Machine (LGBM) Model:***
+Feature Selection based on Variance: Columns with low variance (< 1) are dropped from both the training and test sets. Variance values are calculated using the var() function.
 
-The notebook also introduces the Light Gradient Boosting Machine (LGBM) as a baseline model for house price prediction. The performance of both the XGBoost and LGBM models is evaluated using MAE, MSE, and RMSE scores. Additionally, SHAP analysis is performed for the LGBM model to gain insights into its feature importance and decision-making process.
+Feature Selection based on High Correlation: Columns with high correlation (> 0.5) with other features are dropped from both the training and test sets. These columns are identified using the correlation matrix and the corr() function.
 
-***Insights from SHAP Analysis:***
+Handling Missing Data: Missing values in numerical columns (numerical) are filled with the value 0 based on domain knowledge. Missing values in categorical columns (categorical) are filled with the string 'None'.
 
-The SHAP analysis highlights features that significantly impact house prices in both the XGBoost and LGBM models. Key features such as Overall Quality, Above Ground Living Area, and Total Basement Square Foot are identified as significant contributors to the model's predictions. These insights can help potential buyers and sellers make informed decisions in the real estate market.
+Label Encoding: Categorical data is encoded using the LabelEncoder from sklearn.preprocessing. This step converts categorical data into numerical format, making it suitable for model training.
 
-***Hyperparameter Tuning for LGBM:***
+Final Feature Selection using Decision Trees (Random Forest): The notebook employs a Random Forest Regressor to identify the top 10 features that contribute most to predicting the target variable. The least important features are dropped from both the training and test sets.
 
-Similar to the XGBoost model, Optuna is used to perform hyperparameter tuning for the LGBM model. The objective function is defined, and Optuna efficiently searches the hyperparameter space to find the best combination of hyperparameters that minimize the RMSE.
+Normalizing Data: Finally, the data is normalized using Min-Max scaling to bring all feature values within the range of 0 to 1. This ensures that features with different scales do not dominate the model training process.
 
-***Comparison and Conclusion:***
+Model Training and Evaluation:
+With the data fully processed and features selected, the training data (X) is prepared and used to train the XGBoost and LGBM models. The following steps are performed:
 
-The notebook concludes with a comparison of the performance of the optimized XGBoost and LGBM models. Both models show promising results, but the LGBM model outperforms the optimized XGBoost model in this scenario. The SHAP analysis provides valuable insights into the decision-making process of both models, enhancing their trustworthiness and interpretability.
+XGBoost Model Training: The XGBoost model is initialized using the xgb.XGBRegressor class from the xgboost library. Hyperparameters such as the objective function, maximum depth of the trees, and the number of boosting rounds are set. The model is then trained on the training data (X) and the target variable (y) using the fit() method.
 
-***Final Deployment:***
+Feature Importances: The feature importances are computed using the trained XGBoost model. The top 10 features that contribute most to the prediction are visualized using a bar plot. This provides valuable insights into which features play a significant role in determining house prices.
 
-The pickled models, both the optimized XGBoost and LGBM models, are now ready to be deployed in a Streamlit web application for real-world use. These models can be used to make accurate predictions on new data, assisting stakeholders in making informed decisions based on the house price predictions.
+Prediction on Test Data: The trained XGBoost model is used to predict house prices for the test set (testset). The predictions are saved for later comparison and evaluation.
 
-***Summary: ***
+Final Submission: The predicted house prices for the test set are then saved in a format suitable for submission. This step prepares the model for real-world use and further evaluation.
 
-This Python notebook demonstrates an approach to predicting house prices using feature selection techniques and the XGBoost algorithm. The optimized models achieved better performance compared to the baseline models, showcasing the effectiveness of hyperparameter tuning in improving model accuracy. The SHAP analysis enhances the interpretability and transparency of the models, providing valuable insights into the factors that affect house prices. By comparing and analyzing the performance of different models, data scientists and researchers can make informed choices to build accurate and reliable models for house price prediction tasks.
+Data Splitting for Testing: Before training the XGBoost model, the training data (X) is split into training and testing sets using the train_test_split() function from sklearn.model_selection. The testing set will be used to evaluate the model's performance.
+
+Model Evaluation: The performance of the XGBoost model is evaluated using the testing data (X_test). The Mean Absolute Error (MAE), Mean Squared Error (MSE), and Root Mean Squared Error (RMSE) are computed and printed to evaluate the model's accuracy in predicting house prices.
+
+SHAP (SHapley Additive exPlanations) Analysis for XGBoost:
+To gain a deeper understanding of the XGBoost model's predictions, SHAP values are computed. SHAP values provide insights into how each feature contributes to the model's predictions for individual data points. The following SHAP plots are generated to visualize the feature contributions and interactions:
+
+Waterfall Plot: A waterfall plot is created for the first observation in the training data. It shows how each feature contributes to the difference between the predicted price and the expected value. This plot helps identify the most influential features for a particular prediction.
+
+Mean SHAP Value Plot: This plot displays the mean SHAP values across all observations instead of positive and negative offsets. It helps identify the most important features in the model's predictions.
+
+Summary Plot: The summary plot visualizes all SHAP values for each feature. It groups the values by feature and represents higher feature values in redder shades. This plot highlights important relationships between features and their impact on the predictions.
+
+Summary Plot with Interaction Values: This summary plot shows the relationship between features and their SHAP interaction values. It provides additional insights into significant feature interactions.
+
+Dependence Plot: The dependence plot illustrates the relationship between two features, GrLivArea and OverallQual, and their SHAP interaction values. It shows how the predicted price changes as the features' values change. This plot helps understand how individual feature values affect the model's predictions.
+
+Hyperparameter Tuning with Optuna for XGBoost:
+After understanding the initial performance of the XGBoost model, the notebook proceeds with hyperparameter tuning using Optuna. Hyperparameter tuning is a crucial step in improving the model's performance by finding the best set of hyperparameters for the XGBoost model.
+
+Creating the Optuna Study: An Optuna study is created using optuna.create_study(), and the direction parameter is set to 'minimize' as the objective is to minimize the Mean Squared Error (MSE). The study aims to find the best hyperparameters by exploring the hyperparameter space for a defined number of trials (n_trials).
+
+Hyperparameter Tuning for XGBoost using Optuna: Optuna is used to perform hyperparameter tuning for the XGBoost model. The objective function is defined, which takes a set of hyperparameters as input and returns the MSE as the evaluation metric to minimize. Optuna then searches the hyperparameter space to find the best combination of hyperparameters that result in the lowest MSE.
+
+Optimized XGBoost Model: After hyperparameter tuning, the best set of hyperparameters found by Optuna is used to create an optimized XGBoost model (xgb_optimized). This model is expected to perform better than the initial XGBoost model due to the fine-tuned hyperparameters.
+
+XGBoost Model Evaluation: The performance of the optimized XGBoost model is evaluated using the testing data (X_test). The MAE, MSE, and RMSE scores are calculated and printed to assess the model's improved accuracy and predictions.
+
+**SHAP (SHapley Additive exPlanations) Analysis for Optimized XGBoost Model:**
+
+With the optimized XGBoost model, SHAP analysis is performed once again to gain deeper insights into its predictions and feature importances. The same SHAP plots as before are generated, revealing how the optimized model's predictions differ from the initial model.
+
+**LGBM Baseline Model:**
+
+Moving on, the notebook introduces a baseline model using Light Gradient Boosting Machine (LGBM). LGBM is known for its fast processing and performance, making it an excellent candidate for comparison with XGBoost. The baseline LGBM model (reg_lgbm_baseline) is trained on the training data (X_train and y_train), and its performance is evaluated using MAE, MSE, and RMSE scores.
+
+**SHAP (SHapley Additive exPlanations) Analysis for LGBM Baseline Model:**
+
+With the baseline LGBM model trained, SHAP analysis is conducted to interpret its predictions and understand the feature importances. The SHAP plots showcase how LGBM's predictions differ from XGBoost and which features have the most significant impact on its predictions.
+
+**Hyperparameter Tuning with Optuna for LGBM:**
+
+Similar to XGBoost, Optuna is utilized to perform hyperparameter tuning for the LGBM model. Optuna searches for the best combination of hyperparameters that minimize the RMSE on the validation data. The tuned LGBM model is expected to improve the baseline performance.
+
+**SHAP (SHapley Additive exPlanations) Analysis for Optimized LGBM Model:**
+
+After hyperparameter tuning, SHAP analysis is performed on the optimized LGBM model to gain insights into its predictions. The SHAP plots reveal how the optimized LGBM model's predictions differ from the baseline and how features' importances change.
+
+**Model Comparison:**
+
+The performance of the optimized XGBoost and LGBM models is compared to identify the best-performing model for house price prediction. Metrics like RMSE, MAE, and MSE are compared to evaluate the models' accuracy and reliability.
+
+**Model Pickling:**
+
+Finally, the trained models are saved using pickle to be used with Streamlit for deployment. Pickling allows the models to be easily loaded and utilized in real-world applications, making the model predictions readily available for end-users.
+
+**Conclusion:**
+
+In conclusion, this Python notebook presents an approach to predicting house prices using feature selection techniques, XGBoost, and LGBM models. The notebook covers data preprocessing, feature selection, model training, hyperparameter tuning, model evaluation, and SHAP analysis. The SHAP plots provide valuable insights into the models' decision-making processes and highlight the most significant features impacting the predictions. By employing sophisticated machine learning algorithms and interpretability techniques, the notebook delivers accurate and transparent models for house price prediction. The optimized models achieved improved performance compared to the baseline, showcasing the effectiveness of hyperparameter tuning. The models' predictions can empower stakeholders to make informed decisions in the real estate market, benefiting buyers, sellers, and real estate professionals alike. With the models trained, hyperparameters optimized, and SHAP analysis conducted, the pickled models are now ready to be deployed in real-world applications, providing valuable predictions for house prices and enhancing decision-making processes in the real estate industry.
 
 **References:**
 
