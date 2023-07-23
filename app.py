@@ -150,16 +150,18 @@ if center_button:
     optimized_model_prediction = "{:,.2f}".format(y_pred_optimized[0])
 
     st.write("")
+    "<h5 style='text-align: center; color: #1B9E91;'>result1</h5>"
 
     result1 = "Base model's prediciton: USD" + str(base_model_prediction)
-    st.markdown("<h5 style='text-align: center; color: #1B9E91;'>result1</h5>", unsafe_allow_html=True)
-    st.subheader("       AND ")
+    html_str = f"""<style>p.a {{font: bold {13}px Courier;}}</style><p class="a">{result}</p>"""
+    
+    st.markdown(result1, unsafe_allow_html=True)
 
     st.subheader("Optimized model's prediciton: USD USD "+str(optimized_model_prediction))
 
 
     #with col3:
-    st.markdown("<h5 style='text-align: center; color: #1B9E91;'>SHAP plots</h5>", unsafe_allow_html=True)
+    
 
     
 
