@@ -6,6 +6,7 @@ import numpy as np
 import pickle
 import shap
 
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 np.random.seed(42)
 
