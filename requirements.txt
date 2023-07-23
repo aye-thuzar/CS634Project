@@ -4,4 +4,3 @@ numpy
 matplotlib
 lightgbm 
 shap
-scikit-learn
