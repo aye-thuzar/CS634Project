@@ -9,7 +9,7 @@ app_file: app.py
 pinned: false
 ---
 
-# CS634Project
+# CS634Project - Real Estate House Price Prediction
 
 Milestone-3 notebook: https://github.com/aye-thuzar/CS634Project/blob/main/CS634Project_Milestone3_Final_AyeThuzar.ipynb
 
