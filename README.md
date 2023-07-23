@@ -15,6 +15,8 @@ Milestone-3 notebook: https://github.com/aye-thuzar/CS634Project/blob/main/CS634
 
 Hugging Face App: https://huggingface.co/spaces/ayethuzar/HousePricePredictionApp
 
+Landing Page for the App:
+
 App Demonstration Video: 
 
 ***********
