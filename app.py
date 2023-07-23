@@ -105,9 +105,8 @@ data_df = {
 
 data_df = pd.DataFrame.from_dict(data_df)
 
-#data_df_normal = scaler.transform(data_df)
-
 st.write(data_df.head())
+st.write(data_df.info())
 
 y_pred_base = lgbm_base.predict(data_df)
 #y_pred_optimized = lgbm_opt.predict(data_df)
