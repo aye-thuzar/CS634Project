@@ -105,7 +105,12 @@ data_df = {
 
 data_df = pd.DataFrame.from_dict(data_df)
 
+st.write("Please adjust the feature values using the slides on the left: ")
 st.write(data_df.head())
+
+# normalizing the data
+data_df = (data_df.values - data_df.values.min()) / (data_df.values.max() - data_df.values.min())
+
 st.write(data_df.values)
 
 y_pred_base = lgbm_base.predict(data_df)
