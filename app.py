@@ -150,10 +150,9 @@ if center_button:
     optimized_model_prediction = "{:,.2f}".format(y_pred_optimized[0])
 
     st.write("")
-    "<h5 style='text-align: center; color: #1B9E91;'>result1</h5>"
 
     result1 = "Base model's prediciton: USD" + str(base_model_prediction)
-    html_str = f"""<style>p.a {{font: bold {13}px Courier;}}</style><p class="a">{result}</p>"""
+    html_str = f"""<style>p.a {{font: bold {13}px Courier;}}</style><p class="a">{result1}</p>"""
     
     st.markdown(result1, unsafe_allow_html=True)
 
