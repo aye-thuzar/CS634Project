@@ -227,6 +227,10 @@ pickle.dump(xgb_model, open('xgb_base.pkl', 'wb'))
 pickle.dump(xgb_optimized, open('xgb_optimized.pkl', 'wb'))
 ```
 
+<p align="center">
+<img src="/img/app.png">
+</p>
+
 *************
 
 References:
