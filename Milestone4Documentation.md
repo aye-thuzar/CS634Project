@@ -87,21 +87,127 @@ This summary plot visualises all of the SHAP values. On the y-axis, the values a
 
 This summary plot gives additional insight through visualizing the relationship between features and their SHAP interaction values. As we can see, certain features tend to have a more significiant impact on the prediction, and the distributions of the plots tell us which interactions are more significant than others. For example, Overall Quality, Above Ground Living Area, Total Basement Square Foot, and Neighborhood.
 
-## Tuning XGBoostWIthOptuna
+## XGBoostWithOptuna
+
+```py
+def objective(trial):
+    param = {
+        'max_depth': trial.suggest_int('max_depth', 1, 10),
+        'learning_rate': trial.suggest_float('learning_rate', 0.01, 1.0),
+        'n_estimators': trial.suggest_int('n_estimators', 50, 1000),
+        'min_child_weight': trial.suggest_int('min_child_weight', 1, 10),
+        'gamma': trial.suggest_float('gamma', 0.01, 1.0),
+        'subsample': trial.suggest_float('subsample', 0.01, 1.0),
+        'colsample_bytree': trial.suggest_float('colsample_bytree', 0.01, 1.0),
+        'reg_alpha': trial.suggest_float('reg_alpha', 0.01, 1.0),
+        'reg_lambda': trial.suggest_float('reg_lambda', 0.01, 1.0),
+        'random_state': trial.suggest_int('random_state', 1, 1000)
+    }
+    model = xgb.XGBRegressor(**param)
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+    return mean_squared_error(y_test, y_pred)
+```
+
+Optuna is used to perform hyperparameter tuning for the XGBoost model. The objective function is defined, which takes a set of hyperparameters as input and returns the MSE as the evaluation metric to minimize. Optuna then searches the hyperparameter space to find the best combination of hyperparameters that result in the lowest MSE.
 
 ## Optimized XGBoost
 
-## SHAP for Optimized XGBoost 
+```py
+xgb_optimized = xgb.XGBRegressor(**study.best_params)
+xgb_optimized.fit(X_train, y_train)
+y_pred = xgb_optimized.predict(X_test)
+```
 
-## XGBoost Model (baseline)
+After hyperparameter tuning, the best set of hyperparameters found by Optuna is used to create an optimized XGBoost model (xgb_optimized). This model is expected to perform better than the initial XGBoost model due to the fine-tuned hyperparameters.
 
-## SHAP for XGBoost baseline
+## SHAP for Tuned Optimized XGBoost
 
-## Tuning XGBoostWIthOptuna
+<p align="center">
+<img src="/img/XGBoostOptimized_SHAP_summary.png">
+</p>
 
-## Optimized XGBoost
+The optimized summary plot gives a very similar results to the baseline XGBoost. However, the feature value order changed with GrLivArea now taking the top spot. YearBuilt and BsmtExposure also climbed one spot each. The density of each plot also seems a bit more spreaded out with distinct disconnect between density areas.
 
-## SHAP for Optimized XGBoost 
+<p align="center">
+<img src="/img/XGBoostOptimized_SHAP_summary_interaction.png">
+</p>
+
+This optimized interaction plot also has different feature value order as above. It also has less outliers and range is expanded. However we also see the density of SHAP values being grouped at certain CHAP values.
+
+## LGBM
+
+```py
+reg_lgbm_baseline = lgbm.LGBMRegressor()  # default - 'regression'
+reg_lgbm_baseline.fit(X_train, y_train)
+lgbm_predict = reg_lgbm_baseline.predict(X_test)
+```
+
+LGBM is known for its fast processing and performance, making it an excellent candidate for comparison with XGBoost. The baseline LGBM model (reg_lgbm_baseline) is trained on the training data (X_train and y_train), and its performance is evaluated using MAE, MSE, and RMSE scores. I did XGBoost for milestone-2 and switch to LGBMRegressor for milestone-3 and the baseline model is already better than the XGBoost, with RMSE = 26233.
+
+## SHAP for LGBM
+
+<p align="center">
+<img src="/img/LGBM_SHAP_summary.png">
+</p>
+
+The LGBM baseline plot's feature order is the same as XGBoost baseline. However, the outliers in the plot are no longer present. The SHAP value range is now more compact. There is also a change in the density shapes of the plots which can be accounted for the more compact SHAP range.
+
+<p align="center">
+<img src="/img/LGBM_SHAP_summary_interaction.png">
+</p>
+
+The LGBM baseline interaction plot reverts to the baseline feature order while the density is expanded. It also features more distinct areas of density of SHAP values.
+
+## LGBM with Optuna
+
+```py
+def objective(trial, data=X,target=y):
+
+    params = {
+                'metric': 'rmse',
+                'random_state': 22,
+                'n_estimators': 20000,
+                'boosting_type': trial.suggest_categorical("boosting_type", ["gbdt", "goss"]),
+                'reg_alpha': trial.suggest_loguniform('reg_alpha', 1e-3, 10.0),
+                'reg_lambda': trial.suggest_loguniform('reg_lambda', 1e-3, 10.0),
+                'colsample_bytree': trial.suggest_categorical('colsample_bytree', [0.5, 0.6, 0.7, 0.8, 0.9, 1.0]),
+                'subsample': trial.suggest_categorical('subsample', [0.6, 0.7, 0.85, 1.0]),
+                'learning_rate': trial.suggest_categorical('learning_rate', [0.005, 0.01, 0.02, 0.03, 0.05, 0.1]),
+                'max_depth': trial.suggest_int('max_depth', 2, 12, step=1),
+                'num_leaves' : trial.suggest_int('num_leaves', 13, 148, step=5),
+                'min_child_samples': trial.suggest_int('min_child_samples', 1, 96, step=5),
+            }
+    reg = lgbm.LGBMRegressor(**params)
+    reg.fit(X_train ,y_train,
+            eval_set=[(X_test, y_test)],
+            #categorical_feature=cat_indices,
+            callbacks=[log_evaluation(period=1000),
+                       early_stopping(stopping_rounds=50)
+                      ],
+           )
+
+    y_pred = reg.predict(X_test)
+    rmse = mean_squared_error(y_test, y_pred, squared=False)
+
+    return rmse
+```
+
+Similar to XGBoost, Optuna is utilized to perform hyperparameter tuning for the LGBM model. Optuna searches for the best combination of hyperparameters that minimize the RMSE on the validation data. The tuned LGBM model is expected to improve the baseline performance.
+
+## SHAP for LGBM tuned with Optuna
+
+<p align="center">
+<img src="/img/LGBMTuned_SHAP_summary.png">
+</p>
+
+The SHAP summary plot for tuned LGBM introduces Neighborhood into the top 10 features, while dropping BsmtExposure. It also reverse the positions of MasVnrArea and SaleCondition. The range of SHAP values increased and outliers are present again. The density shapes are different from the XGBoost models.
+
+<p align="center">
+<img src="/img/LGBMTuned_SHAP_summary_interaction.png">
+</p>
+
+Tuned LGBM SHAP summary interaction also reintroduces outliers while maintaining an expanded range. The density of SHAP values also differ from the XGBoost models.
 
 ## Pickled the models for streamlit app
 
